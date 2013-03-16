@@ -3,6 +3,7 @@
 	diff = auto
 	interactive = auto
 	status = auto
+	ui = true
 
 [alias]
 	st = status

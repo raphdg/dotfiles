@@ -2,16 +2,21 @@
 # ~/.bashrc
 #
 
-
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
 alias ll='ls -Hl'
-#PS1='[\u@\h \W]\$ '
-PS1='\W \$ '
 
-# source ~/.bash/gitprompt.sh
+# Git and prompt
+PS1='\W \$ '
+if [ -f ~/.git-prompt.sh ] ; then
+    source ~/.git-prompt.sh
+    GIT_PS1_SHOWDIRTYSTATE=true
+    PS1='\W$(__git_ps1 " (%s)") \$ '
+fi
+export PS1
+
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
